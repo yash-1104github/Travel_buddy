@@ -5,11 +5,12 @@ import { AI_PROMPT } from "@/constants/options";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner"
 import { chatSession } from "@/service/AIModel";
-import { setDoc, doc,  } from "firebase/firestore"; 
+import { setDoc, doc  } from "firebase/firestore"; 
 import { app, db } from "@/service/firebaseCongfig";
 import { useNavigate } from "react-router-dom";
 import Budget from "./components/Budget";
 import Member from "./components/Member";
+
 
 
 
@@ -36,8 +37,13 @@ function CreateTrip() {
 
     const GenerateTrip = async () => {
 
-        if (formData?.noOfDays > 8){
+        if (formData?.noOfDays > 8 ){
             toast('Please select days less than 8');
+            return;
+        }
+
+        if (formData?.noOfDays < 1) {
+            toast('Please select days greater than 0');
             return;
         }
 
@@ -59,6 +65,7 @@ function CreateTrip() {
 
         console.log(FINAL_PROMPT);
 
+         //next line *
         const result = await chatSession.sendMessage(FINAL_PROMPT);
 
         //console.log(result?.response?.text());
@@ -88,12 +95,16 @@ function CreateTrip() {
       catch(error){
           console.log('Error:', error);
           setLoading(false);
+          toast('Please Enter Details again...');
       }
     }
 
         return (
-            <div className="px-28 mt-5  sm:px-20 md:px-32 lg:px-56 xl:px-72 ">
-                <h2 className="font-bold text-3xl ">Tell us your travel preferences</h2>
+            <div className="px-28 sm:px-20 md:px-32 lg:px-56 xl:px-72 bg mt-4">
+              <div className=" w-full ">
+                    <h2 className="font-bold text-3xl ">Tell us your travel preferences</h2>
+              </div>
+                
                 <p className="mt-3 text-gray-500 text-xl">Just provide some basic information, and our trip planner will generate a  customized itineray based on your preferences.</p>
 
                 <div className="mt-10 flex flex-col gap-10">
@@ -124,7 +135,7 @@ function CreateTrip() {
 
                 <div className="my-10 justify-end flex">
                     <Button disable={loading} onClick={GenerateTrip}>
-                    {loading? 'Generating...'
+                        {loading ? 'Generating...'
                     : 'Generate Trip Plan'}
                    </Button>
                 </div>

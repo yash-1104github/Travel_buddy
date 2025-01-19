@@ -13,7 +13,7 @@ const Home = () => {
         
         <Link to={'/create-trip'}>
 
-        <Button className="mt-4">Get Started, It's Free</Button>
+        <Button className="mt-6">Get Started, It's Free</Button>
         
         </Link>
         

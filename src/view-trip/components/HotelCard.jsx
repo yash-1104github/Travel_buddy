@@ -30,7 +30,7 @@ const HotelCard = ({hotel}) => {
           <Link to={'https://www.google.com/maps/search/?api=1&query=' + hotel.hotelName + "," + hotel.hotelAddress} target="_blank">
               <div  className="hover:scale-110  transition-all cursor-pointer" >
                   <img src={photoUrl ? photoUrl : 'https://images.unsplash.com/photo-1502920514313-52581002a659?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzR8fHRyYXZlbHxlbnwwfHwwfHx8MA%3D%3D'} alt="logo" className="rounded-xl object-cover h-[200px] w-full" />
-                  <div className="my-2 gap-2 flex flex-col">
+                  <div className="my-2 gap-2 flex flex-col hover:shadow-lg">
                       <h2 className="font-medium">{hotel.hotelName}</h2>
                       <h2 className="text-sm "> {hotel.hotelAddress}</h2>
                       <h2 className="text-sm ">Per-Night: {hotel.priceRange}</h2>

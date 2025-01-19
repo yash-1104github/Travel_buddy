@@ -19,6 +19,7 @@ const Viewtrip = () => {
     }, [tripId])
 
     const GetTripData= async()=>{
+        
     const docsRef = doc(db, "tripinfo", tripId);
     const docSnap = await getDoc(docsRef); 
        
@@ -29,13 +30,12 @@ const Viewtrip = () => {
     else{
         console.log("No such document!");
         toast("No such document!");
-    }
-      
+    }     
     }
 
   return (
     <>
-          <div className="p-10 md:px-30 lg-px-44 xl:px-60 ">
+          <div className="p-10 md:px-30 lg-px-44 xl:px-60 bg-slate-100 ">
               <InfoSection trip={trip} />
 
               <Hotel trip={trip} />

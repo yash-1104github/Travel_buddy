@@ -7,7 +7,7 @@ const Budget = ({formData,handleChange}) => {
 
   return (
     <>
-                        <div>
+                          <div>
                             <h2 className="text-xl my-3 font-medium mt-5 ">What is Your Budget?</h2>
                             <div className="grid grid-cols-3 gap-5 mt-5 ">
         

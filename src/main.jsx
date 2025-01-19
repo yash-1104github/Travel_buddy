@@ -7,6 +7,7 @@ import CreateTrip from './create-trip/index.jsx'
 import Headers from './components/custom/Header.jsx'
 import { Toaster } from "@/components/ui/sonner"
 import Viewtrip from './view-trip/index.jsx'
+import useGoogleMapsAPI from './hooks/GoogeMap'
 
 
 
@@ -25,11 +26,22 @@ const router = createBrowserRouter([
   },
 ])
 
+window.initMap = () => {
+  console.log("Google Maps API initialized.");
+};
 
-createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <Headers />
-    <Toaster />  
-  <RouterProvider router={router}/>
-  </React.StrictMode>
-)
+const RootComponent = () => {
+  // Load Google Maps API
+  useGoogleMapsAPI();
+
+  return (
+    <StrictMode>
+      <Headers />
+      <RouterProvider router={router} />
+      <Toaster />
+    </StrictMode>
+  );
+};
+
+
+createRoot(document.getElementById('root')).render(<RootComponent />);
