@@ -6,7 +6,7 @@ import { db } from "@/service/firebaseCongfig";
 import { toast } from "sonner";
 import Hotel from "./components/Hotel";
 import PlacesToVisit from "./components/PlacesToVisit";
-import Footer from "@/components/custom/footer";
+import Footer from "@/components/custom/Footer";
 
 
 const Viewtrip = () => {
