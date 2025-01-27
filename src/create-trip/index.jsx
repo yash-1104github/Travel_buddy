@@ -207,9 +207,9 @@ const CreateTrip = () => {
                             <DialogDescription>
                                 {/* <img src="/logo.svg"/> */}
                                 <h2 className="font-bold text-lg flex text-black">Sign in with Google</h2>
-                                <p className="flex"> Sign in to the App with Google authentication securly</p>
+                                <p className="flex justify-start"> Sign in to the App with Google authentication securly</p>
 
-                                <div className="flex gap-4 justify-between mt-5">
+                                <div className="flex gap-4 justify-start mt-5">
                                     <Button onClick={login} className="  flex gap-4 w-full item-center">
                                         <FcGoogle className='w-7 h-7 ' />
                                         Sign in with Google
