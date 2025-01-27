@@ -40,14 +40,15 @@ window.initMap = () => {
  const RootComponent = () => {
 
 
+
   return (
-    <React.StrictMode>
+    
       <GoogleOAuthProvider clientId={import.meta.env.VITE_GOOGLE_AUTH_CLIENT_ID}>
       <Headers />
       <RouterProvider router={router} />
       <Toaster />
-      </GoogleOAuthProvider>;
-    </React.StrictMode>
+      </GoogleOAuthProvider>
+  
   );
 };
 

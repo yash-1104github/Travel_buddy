@@ -7,7 +7,7 @@ const useGoogleMapsAPI = () => {
     // Check if the script is already present
     if (!document.querySelector(`script[src*="maps.googleapis.com"]`)) {
       const script = document.createElement("script");
-      script.src = `https://maps.googleapis.com/maps/api/js?key=${apiKey}&libraries=places&callback=initMap`;
+      script.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyCZDwV4SCjAU8eRHjoZH9pc3DZqwHa3gec&libraries=places&callback=initMap";
       script.async = true;
       script.defer = true;
 
