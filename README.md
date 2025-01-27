@@ -1,4 +1,4 @@
-# Travel scheduling Application 
+# AI-Trip-Planner Application
 
 ![Screenshot 2025-01-28 011724](https://github.com/user-attachments/assets/f4144d7a-e875-4bb3-9d7a-0fb7337d1305)
 
