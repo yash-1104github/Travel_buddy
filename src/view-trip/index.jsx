@@ -6,7 +6,7 @@ import { db } from "@/service/firebaseCongfig";
 import { toast } from "sonner";
 import Hotel from "./components/Hotel";
 import PlacesToVisit from "./components/PlacesToVisit";
-import Footer from "@/components/custom/Footer";
+
 
 
 const Viewtrip = () => {
@@ -35,16 +35,10 @@ const Viewtrip = () => {
 
   return (
     <>
-          <div className="p-10 md:px-30 lg-px-44 xl:px-60 bg-slate-100 ">
+          <div className="p-10 bg-gray-50 md:px-30 lg-px-44 xl:px-60">
               <InfoSection trip={trip} />
-
               <Hotel trip={trip} />
-
               <PlacesToVisit trip={trip} />
-
-              <Footer />
-
-
         </div>
     </>
   );
