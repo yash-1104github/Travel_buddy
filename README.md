@@ -1,7 +1,8 @@
 # Travel scheduling Application 
 
+
 LIVE DEMO:
-- *https://travel-ai-lilac.vercel.app/*
+- *https://ai-trip-planner-gules.vercel.app/*
 
 TECH STACK USED:
 - REACT, JAVASCRIPTE, TAILWINDCSS, GOOGLE API, SHADCN-UI, NODE.JS, HTML, FIREBASE, VITE.JS
