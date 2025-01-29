@@ -5,7 +5,7 @@ import Home from "./components/custom/Home";
 const App = () => {
   return (
     <>
-      <div className="bg-gray-50 h-[calc(100vh-6rem)]">
+      <div className="bg-gray-50 h-[100%]">
       <Home/>
     </div>
     </>

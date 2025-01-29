@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Button } from "../ui/button";
 import { IoMdAdd } from "react-icons/io";
 import {
@@ -28,18 +28,29 @@ const Header = () => {
 
   const user = JSON.parse(localStorage.getItem('user'));
   const [openDialog, setOpenDialog] = useState(false);
-
+  const modalRef = useRef(null);
 
   useEffect(() => {
     console.log(user);
-    console.log('User Data')
-  }, [])
+    console.log('User Data');
+
+    const handleClickOutside = (e) => {
+      if (modalRef.current && !modalRef.current.contains(e.target)) {
+        setOpenDialog(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
 
   const login = useGoogleLogin({
     onSuccess: (codeResponse) => GetUserProfile(codeResponse),
     onError: (error) => console.log(error)
-  }
-  )
+  });
 
 
   const GetUserProfile = async (tokenInfo) => {
@@ -58,20 +69,20 @@ const Header = () => {
 
   return (
     <>
-      <div className="p-3 h-[5rem]  bg-[#c1c8bb]  shadow-sm flex justify-between items-center px-4 gap-4 ">
+      <div className="p-3 h-[5rem] bg-gray-50    shadow-sm flex justify-between items-center px-4 gap-4 ">
 
         <a href='/' >
-          <img src="/logo.svg" />
+          <img src="/logo.svg" className="mt-2" />
         </a>
 
         <div className="hidden gap-4 sm:flex">
           <a href='/create-trip'>
-            <Button className="rounded-3xl"><IoMdAdd /> Create Trips</Button>
+            <Button variant='destructive' className="rounded-3xl bg-slate-500 "><IoMdAdd /> Create Trips</Button>
           </a>
 
           <div>
             {
-              user ?
+              user ? (
                 <div className="flex gap-4 items-center">
                   <a href="/my-trips">
                     <Button variant='outline' classname="rounded-full">My Trips</Button>
@@ -91,45 +102,36 @@ const Header = () => {
                       </h2>
                     </PopoverContent>
                   </Popover>
-
                 </div>
-                : <Button onClick={() => setOpenDialog(true)} className="rounded-full">Sign In</Button>
+              ) : (
+                <Button onClick={() => setOpenDialog(true)} className="rounded-full">
+                  Sign In
+                </Button>
+              )
             }
 
           </div>
 
 
+          <Dialog open={openDialog} >
+            <DialogContent ref={modalRef} className="sm:max-w-md">
+              <DialogDescription>
+                <h2 className="font-bold text-lg flex text-black">Sign in with Google</h2>
+                <p className="flex "> Sign in to the App with Google authentication securly</p>
+              </DialogDescription>
 
-
-          <Dialog open={openDialog}>
-
-            <DialogContent className="sm:max-w-md">
-              <DialogHeader>
-
-                <DialogDescription>
-                  {/* <img src="/logo.svg"/> */}
-                  <h2 className="font-bold text-lg flex text-black">Sign in with Google</h2>
-                  <p className="flex"> Sign in to the App with Google authentication securly</p>
-                   
-                  <div className="flex gap-4 justify-between mt-5"> 
-                    <Button onClick={login} className="  flex gap-4 w-full item-center">
-                      <FcGoogle className='w-7 h-7 ' />
-                      Sign in with Google
-                    </Button>
-                  <Button onClick={() => setOpenDialog(false)} > Close</Button>
-                  </div> 
-                 
-                </DialogDescription>
-          
-                
-                
-              </DialogHeader>
+              <div className="flex gap-4 justify-between mt-5">
+                <Button onClick={login} className="  flex gap-4 w-full item-center">
+                  <FcGoogle className='w-7 h-7 ' />
+                  Sign in with Google
+                </Button>
+              </div>
             </DialogContent>
           </Dialog>
 
         </div>
 
-       <div className="flex gap-2 sm:hidden ">
+        <div className="flex gap-2 sm:hidden ">
           <div>
             {
               user ?
@@ -161,9 +163,7 @@ const Header = () => {
             }
 
           </div>
-       </div>
-        
-
+        </div>
       </div>
     </>
   );

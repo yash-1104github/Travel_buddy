@@ -35,7 +35,7 @@ const Mytrips = () => {
     }
 
     return (
-        <div className='flex flex-col  bg-gray-50 max-h-screen px-5 sm:px-20 md:px-32 lg:px-56 xl:px-72 '>
+        <div className='flex flex-col  bg-gray-50 h-[100vh] px-5 sm:px-20 md:px-32 lg:px-48 xl:px-72 '>
          <h2 className='font-bold text-4xl mt-8 text-red-500'>My trips</h2>
             <p className='text-gray-500'>Here are the trips you have created</p>
          <div className='grid grid-cols-2  mt-8 md:grid-cols-3  gap-5'>
