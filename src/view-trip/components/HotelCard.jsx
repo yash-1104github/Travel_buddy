@@ -28,12 +28,12 @@ const HotelCard = ({hotel}) => {
   return(
     <>
           <Link to={'https://www.google.com/maps/search/?api=1&query=' + hotel.hotelName + "," + hotel.hotelAddress} target="_blank">
-              <div  className="hover:scale-105  transition-all cursor-pointer" >
+              <div  className="rounded-xl shadow-sm hover:shadow-md bg-gray-200 hover:scale-105  transition-all cursor-pointer" >
                   <img src={photoUrl ? photoUrl : 'https://images.unsplash.com/photo-1502920514313-52581002a659?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzR8fHRyYXZlbHxlbnwwfHwwfHx8MA%3D%3D'} alt="logo" className="rounded-xl object-cover h-[200px] w-full" />
-                  <div className="my-2 gap-2 flex flex-col hover:shadow-lg">
-                      <h2 className="font-medium">{hotel.hotelName}</h2>
-                      <h2 className="text-sm  text-gray-500">📍 {hotel.hotelAddress}</h2>
-                      <h2 className="text-sm ">💰 {hotel.priceRange} per night</h2>
+                  <div className="mt-3 gap-1 h-32  flex flex-col hover:shadow-lg">
+                      <h2 className="font-medium text-center text-gray-900">{hotel.hotelName}</h2>
+                      <h2 className="text-sm  text-gray-600">📍{hotel.hotelAddress}</h2>
+                      <h2 className="text-sm text-gray-700">💰 {hotel.priceRange} per night</h2>
                       <h2 className="text-base text-gray-800">⭐ {hotel.rating} stars</h2>
                   </div>
               </div>

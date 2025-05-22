@@ -17,37 +17,50 @@ const Mytrips = () => {
 
     const GetUserTrips = async () => {
         const user = JSON.parse(localStorage.getItem('user'));
-
         if (!user) {
             navigation('/');
             return;
         }
 
         const q = query(collection(db, 'tripinfo'), where('userEmail', '==', user?.email));
-        //console.log(q);
+       
         const querySnapshot = await getDocs(q);
         setUserTrips([]);
-       // console.log(querySnapshot);
+       
         querySnapshot.forEach((doc) => {
             console.log(doc.id, " => ", doc.data());
-            setUserTrips(prevVal=>[...prevVal, doc.data()]);
+            setUserTrips(prevVal => [...prevVal, doc.data()]);
         });
     }
 
+
+
+    
+
+
+
     return (
-        <div className='flex flex-col  bg-gray-50 h-[100vh] px-5 sm:px-20 md:px-32 lg:px-48 xl:px-72 '>
-         <h2 className='font-bold text-4xl mt-8 text-red-500'>My trips</h2>
-            <p className='text-gray-500'>Here are the trips you have created</p>
-         <div className='grid grid-cols-2  mt-8 md:grid-cols-3  gap-5'>
-            {
-               userTrips?.length> 0?userTrips.map((trip, index) => (
-                    <UserTripCard trip={trip}  />
-                ))
-                :<h2 className='text-red-500'>No trips found</h2>
-            }
-         </div>
+        <div>
+            <div className="h-[5rem]"></div>
+            <div className='flex flex-col   bg-gray-50 h-[100vh] px-5 sm:px-20 md:px-32 lg:px-48 xl:px-72' style={{ fontFamily: ' Poppins, sans-serif' }} >
+                <h2 className='font-bold  text-4xl mt-8 text-red-500'>My trips</h2>
+                <p className='text-gray-500 my-4'>Here are the trips you have created</p>
+                
+                <div className='flex justify-between items-center mt-4'>
+                    <h2 className='text-lg font-bold text-gray-500'>Total trips: {userTrips?.length}</h2>
+                    <button onClick={() => navigation('/create-trip')} className='bg-red-500 text-white px-4 py-2 rounded-md'>Create new trip</button>
+                </div>
+
+                <div className='grid grid-cols-2  mt-8 md:grid-cols-3  gap-5 '>
+                    {
+                        userTrips?.length > 0 ? userTrips.map((trip, index) => (
+                            <UserTripCard trip={trip} key={index} />
+                        ))
+                            : <h2 className='text-red-500'>No trips found</h2>
+                    }
+                </div>
+            </div>
         </div>
     )
 }
-
 export default Mytrips;

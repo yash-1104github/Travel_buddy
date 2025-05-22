@@ -13,17 +13,14 @@ const InfoSection = ({ trip }) => {
     }, [trip])
 
     const GetPlacePhoto = async () => {
-        //console.log(trip?.userSelection?.location?.label);
+      
         const data = {
             textQuery: trip?.userSelection?.location?.label
         }
         const result = await getPlaces(data).then(response => {
 
-            //console.log(response.data.places[0].photos[4].name);
-
+            
             const PhotoUrl = PHOTO_REF_URL.replace("{NAME}", response.data.places[0].photos[4].name);
-
-            // console.log(PhotoUrl);
 
             setPhotoUrl(PhotoUrl);
         })
@@ -34,7 +31,7 @@ const InfoSection = ({ trip }) => {
     return (
         <>
             <div>
-                <div className="flex  justify-center gap-5">
+                <div className="flex justify-center gap-5">
 
                     <img className="h-[270px] w-[500px] object-cover  rounded-xl  shadow-md shadow-zinc-600 " src={photoUrl}/>
 

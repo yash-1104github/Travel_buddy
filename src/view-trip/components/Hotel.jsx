@@ -10,7 +10,7 @@ const Hotel = ({ trip }) => {
     return (
         <>
             <div>
-                <div className="font-bold text-2xl mt-5 text-center text-blue-800">
+                <div className="font-bold text-2xl mt-16 ml-6  text-blue-800">
                     Hotel Recommendation
                 </div>
                 <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-5 p-4  mt-5 font-semibold ">

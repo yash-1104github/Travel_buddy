@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { Button } from "../ui/button";
 import { IoMdAdd } from "react-icons/io";
 import {
@@ -25,15 +25,13 @@ import GooglePlacesAutocomplete from "react-google-places-autocomplete";
 const Header = () => {
 
   // bg - [hsl(120, 8 %, 69 %)] bg-[#adbdad] 
+ // const { userDetail, setUserDetail } = useContext(UserDetailsConstext);
 
   const user = JSON.parse(localStorage.getItem('user'));
   const [openDialog, setOpenDialog] = useState(false);
   const modalRef = useRef(null);
 
   useEffect(() => {
-    console.log(user);
-    console.log('User Data');
-
     const handleClickOutside = (e) => {
       if (modalRef.current && !modalRef.current.contains(e.target)) {
         setOpenDialog(false);
@@ -69,13 +67,14 @@ const Header = () => {
 
   return (
     <>
-      <div className="p-3 h-[5rem] bg-gray-50    shadow-sm flex justify-between items-center px-4 gap-4 ">
+      <div className="p-3 h-[5rem] fixed top-0 w-full bg-white/80 backdrop-blure-md z-50 border-b bg-gray-50 shadow-sm flex justify-between items-center px-4 gap-4 ">
 
         <a href='/' >
-          <img src="/logo.svg" className="mt-2" />
+          <img src="/logi.png" className="mt-2 w-52 h-36 mb-2 object-contain " />
         </a>
-
+        
         <div className="hidden gap-4 sm:flex">
+         
           <a href='/create-trip'>
             <Button variant='destructive' className="rounded-3xl bg-slate-500 "><IoMdAdd /> Create Trips</Button>
           </a>
@@ -116,12 +115,12 @@ const Header = () => {
           <Dialog open={openDialog} >
             <DialogContent ref={modalRef} className="sm:max-w-md">
               <DialogDescription>
-                <h2 className="font-bold text-lg flex text-black">Sign in with Google</h2>
-                <p className="flex "> Sign in to the App with Google authentication securly</p>
+                <h2 className="font-bold text-2xl  text-center text-gray-800">Get Start with Travel Buddy</h2>
+                <p className=" text-center"> Sign in to the Website with  Gmail I'd</p>
               </DialogDescription>
 
-              <div className="flex gap-4 justify-between mt-5">
-                <Button onClick={login} className="  flex gap-4 w-full item-center">
+              <div className="flex gap-4 justify-center mt-5">
+                <Button onClick={login} className="justify-center gap-4 w-full item-center">
                   <FcGoogle className='w-7 h-7 ' />
                   Sign in with Google
                 </Button>
@@ -164,6 +163,9 @@ const Header = () => {
 
           </div>
         </div>
+
+        
+
       </div>
     </>
   );

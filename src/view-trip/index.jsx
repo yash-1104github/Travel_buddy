@@ -11,37 +11,39 @@ import PlacesToVisit from "./components/PlacesToVisit";
 
 const Viewtrip = () => {
 
-    const {tripId}= useParams();
+    const { tripId } = useParams();
     const [trip, setTrip] = useState([]);
 
     useEffect(() => {
-        tripId&&GetTripData();
+        tripId && GetTripData();
     }, [tripId])
 
-    const GetTripData= async()=>{
-        
-    const docsRef = doc(db, "tripinfo", tripId);
-    const docSnap = await getDoc(docsRef); 
-       
-    if(docSnap.exists()){
-        console.log("Document data:", docSnap.data());
-        setTrip(docSnap.data());
-    }
-    else{
-        console.log("No such document!");
-        toast("No such document!");
-    }     
+    const GetTripData = async () => {
+
+        const docsRef = doc(db, "tripinfo", tripId);
+        const docSnap = await getDoc(docsRef);
+
+        if (docSnap.exists()) {
+            console.log("Document data:", docSnap.data());
+            setTrip(docSnap.data());
+        }
+        else {
+            console.log("No such document!");
+            toast("No such document!");
+        }  
     }
 
-  return (
-    <>
-          <div className="p-10 bg-gray-50 md:px-30 lg-px-44 xl:px-60">
-              <InfoSection trip={trip} />
-              <Hotel trip={trip} />
-              <PlacesToVisit trip={trip} />
-        </div>
-    </>
-  );
+    return (
+        <>
+            <div className="p-10 my-2 bg-gray-50 md:px-30 lg-px-44 xl:px-60">
+                <div className="h-[5rem]"></div>
+                <InfoSection trip={trip} />
+                <Hotel trip={trip} />
+                <PlacesToVisit trip={trip} />
+            </div>
+
+        </>
+    );
 };
 
 export default Viewtrip;

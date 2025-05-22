@@ -52,20 +52,20 @@ const CreateTrip = () => {
     }, [formData])
 
     useEffect(() => {
-       
+
         const handleClickOutside = (e) => {
-          if (modalRef.current && !modalRef.current.contains(e.target)) {
-            setOpenDialog(false);
-          }
+            if (modalRef.current && !modalRef.current.contains(e.target)) {
+                setOpenDialog(false);
+            }
         };
-    
+
         document.addEventListener('mousedown', handleClickOutside);
-    
+
         return () => {
-          document.removeEventListener('mousedown', handleClickOutside);
+            document.removeEventListener('mousedown', handleClickOutside);
         };
-      }, []);
-    
+    }, []);
+
 
 
     const login = useGoogleLogin({
@@ -102,7 +102,7 @@ const CreateTrip = () => {
 
         setLoading(true)
 
-        //console.log('Generating Trip', formData);
+       
 
         const FINAL_PROMPT = AI_PROMPT
             .replace('{location}', formData?.location?.label)
@@ -113,46 +113,33 @@ const CreateTrip = () => {
 
         console.log(FINAL_PROMPT);
 
-        //next line *
+   
         const MAX_RETRIES = 10;
         const RETRY_DELAY = 2000;
 
-        // const retryWithBackoff = async (fn, retries, delay) => {
-        //     for (let i = 0; i < retries; i++) {
-        //         try {
-        //             return await fn();
-        //         } catch (error) {
-        //             if (error.code === 503 && i < retries - 1) {
-        //                 console.warn(`Retrying... (${i + 1}/${retries})`);
-        //                 await new Promise((resolve) => setTimeout(resolve, delay * Math.pow(2, i))); // Exponential backoff
-        //             } else {
-        //                 throw error; // Re-throw the error if retries are exhausted or non-503 error
-        //             }
-        //         }
-        //     }
-        // };
+       
 
 
         const sendMessageWithRetries = async () => {
             for (let attempt = 1; attempt <= MAX_RETRIES; attempt++) {
                 try {
-                    // Attempt to send the message
+                   
                     const result = await chatSession.sendMessage(FINAL_PROMPT);
-                    return result; // If successful, return the result
+                    return result; 
                 } catch (error) {
                     console.error(`Attempt ${attempt} failed:`, error);
 
                     if (error?.code === 503) {
-                        // Service overloaded - retry
+                        
                         if (attempt < MAX_RETRIES) {
                             console.warn(`Retrying in ${RETRY_DELAY / 1000} seconds...`);
-                            await new Promise((resolve) => setTimeout(resolve, RETRY_DELAY)); // Wait before retrying
+                            await new Promise((resolve) => setTimeout(resolve, RETRY_DELAY)); 
                         } else {
-                            // If max retries are exhausted, throw the error
+                            
                             throw new Error('Service is overloaded. Please try again later.');
                         }
                     } else {
-                        // If the error is not a 503, throw it immediately
+                        
                         throw error;
                     }
                 }
@@ -161,7 +148,7 @@ const CreateTrip = () => {
 
 
         try {
-            //  const result = await retryWithBackoff(() => chatSession.sendMessage(FINAL_PROMPT), MAX_RETRIES, RETRY_DELAY);
+           
             const result = await sendMessageWithRetries();
             console.log(result?.response?.text());
             SaveAiTrip(result?.response?.text());
@@ -189,7 +176,7 @@ const CreateTrip = () => {
         })
     }
 
-    //save data on firebase
+    
     const SaveAiTrip = async (TripData) => {
 
         setLoading(true);
@@ -212,21 +199,22 @@ const CreateTrip = () => {
 
         }
         catch (error) {
-            //   console.log('Error:', error);
+            
             setLoading(false);
             toast('Please Enter Details again...');
         }
     }
 
     return (
-        <div className="flex flex-col  bg-gray-50 px-5 sm:px-20 md:px-32 lg:px-56 xl:px-72 ">
+        <div className="flex flex-col bg-gray-50 px-5 sm:px-20 md:px-32 lg:px-56 xl:px-72 ">
+            <div className="h-[5rem]"></div>
             <div className="w-full">
-                <h2 className="font-bold text-4xl mt-4 text-[#f56551]">Tell us your travel preferences </h2>
+                <h2 className="font-bold text-4xl mt-8 text-[#f56551]" style={{ fontFamily: 'Poppins, sans-serif' }}>Tell us your travel preferences </h2>
             </div>
 
-            <p className="mt-3  text-gray-800 text-lg sm:text-xl">Just provide some basic information, and our trip planner will generate a  customized itineray based on your preferences.</p>
+            <p className="mt-3  text-gray-800  text-lg sm:text-xl" style={{ fontFamily: 'Poppins, sans-serif' }}>Just provide some basic information, and our trip planner will generate a  customized itineray based on your preferences.🏡🛬</p>
 
-            <div className="mt-6 flex flex-col gap-5">
+            <div className="mt-8 flex flex-col gap-5 my-8">
                 <h2 className="text-xl my-1 font-medium text-blue-800">What is destination of choice?</h2>
                 <GooglePlacesAutocomplete
                     apikey={import.meta.env.VITE_GOOGLE_API_KEY}
@@ -237,7 +225,7 @@ const CreateTrip = () => {
                 />
             </div>
 
-            <div>
+            <div className="my-4">
                 <div>
                     <h2 className="text-xl my-3 font-medium text-blue-800">How many days are you planning your trip?</h2>
                     <Input className=" border rounded-lg " placeholder="Enter number of days" type="number"
@@ -246,14 +234,17 @@ const CreateTrip = () => {
                 </div>
             </div>
 
+
+
             <Budget formData={formData} handleChange={handleChange} />
 
             <Member formData={formData} handleChange={handleChange} />
 
-            <div className="my-10 justify-end flex">
-                <Button disable={loading} onClick={GenerateTrip}>
-                    {loading ? 'Generating...'
-                        : 'Generate Trip Plan'}
+
+            <div className="my-14 justify-end flex">
+                <Button className="h-12 w-22" disable={loading} onClick={GenerateTrip}>
+                    {loading ? 'Please wait...' : 'Generate Trip Plan'}
+                    {loading ? <svg className="animate-spin h-8 w-8 text-white ml-2" viewBox="3 3 18 18" xmlns="http://www.w3.org/2000/svg"><path d="M12 3v2a7 7 0 1 1-7 7h2a5 5 0 1 0 5-5V3z" fill="currentColor" /></svg> : ''}
                 </Button>
             </div>
 
@@ -261,12 +252,12 @@ const CreateTrip = () => {
             <Dialog open={openDialog} >
                 <DialogContent ref={modalRef} className="sm:max-w-md">
                     <DialogDescription>
-                        <h2 className="font-bold text-lg flex text-black">Sign in with Google</h2>
-                        <p className="flex "> Sign in to the App with Google authentication securly</p>
+                        <h2 className="font-bold text-2xl  text-center text-gray-800">Get Start with Travel Buddy</h2>
+                        <p className=" text-center"> Sign in to the Website with  Gmail I'd</p>
                     </DialogDescription>
 
-                    <div className="flex gap-4 justify-between mt-5">
-                        <Button onClick={login} className="  flex gap-4 w-full item-center">
+                    <div className="flex gap-4 justify-center mt-5">
+                        <Button onClick={login} className="justify-center gap-4 w-full item-center">
                             <FcGoogle className='w-7 h-7 ' />
                             Sign in with Google
                         </Button>

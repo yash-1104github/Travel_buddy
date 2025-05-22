@@ -29,7 +29,7 @@ const router = createBrowserRouter([
   {
     path: '/my-trips',
     element: <Mytrips />
-  }
+  },
 ]);
 
 window.initMap = () => {
@@ -38,11 +38,9 @@ window.initMap = () => {
 
 
  const RootComponent = () => {
-
-
+  
 
   return (
-    
       <GoogleOAuthProvider clientId={import.meta.env.VITE_GOOGLE_AUTH_CLIENT_ID}>
       <Headers />
       <RouterProvider router={router} />
