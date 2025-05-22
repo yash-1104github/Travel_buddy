@@ -1,8 +1,8 @@
-
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
 
 @layer base {
   :root {
@@ -65,5 +65,44 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradientMove 3s ease infinite;
+}
+
+
+.card-hover-effect {
+  transition: transform 0.2s ease;
+  will-change: transform;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.card-hover-effect:hover {
+  animation: cardWiggle 0.5s ease;
+}
+
+@keyframes cardWiggle {
+  0% {
+    transform: rotateZ(0deg);
+  }
+
+  25% {
+    transform: rotateZ(1deg);
+  }
+
+  50% {
+    transform: rotateZ(0deg);
+  }
+
+  75% {
+    transform: rotateZ(-1deg);
+  }
+
+  100% {
+    transform: rotateZ(0deg);
   }
 }

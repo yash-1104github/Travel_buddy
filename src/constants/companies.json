@@ -1,0 +1,27 @@
+[
+    {
+        "name": "airalo",
+        "path": "/companies/airalo.svg",
+        "id": 1
+    },
+    {
+        "name": "freetour",
+        "path": "/companies/freetour.svg",
+        "id": 2
+    },
+    {
+        "name": "getyourguide",
+        "path": "/companies/getyourguide.svg",
+        "id": 3
+    },
+    {
+        "name": "holafly",
+        "path": "/companies/holafly.svg",
+        "id": 4
+    },
+    {
+        "name": "viator",
+        "path": "/companies/viator.svg",
+        "id": 5
+    }
+]
