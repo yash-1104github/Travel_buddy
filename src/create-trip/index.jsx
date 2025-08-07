@@ -206,13 +206,13 @@ const CreateTrip = () => {
     }
 
     return (
-        <div className="flex flex-col bg-gray-50 px-5 sm:px-20 md:px-32 lg:px-56 xl:px-72 ">
-            <div className="h-[5rem]"></div>
+        <div className="flex flex-col bg-gray-50 px-5 sm:px-20 md:px-28 lg:px-56 xl:px-72 ">
+            <div className="h-20"></div>
             <div className="w-full">
-                <h2 className="font-bold text-4xl mt-8 text-[#f56551]" style={{ fontFamily: 'Poppins, sans-serif' }}>Tell us your travel preferences </h2>
+                <h2 className="font-semibold text-2xl md:text-3xl lg:text-4xl mt-8 text-[#f56551]" style={{ fontFamily: 'Poppins, sans-serif' }}>Tell us your travel preferences </h2>
             </div>
 
-            <p className="mt-3  text-gray-800  text-lg sm:text-xl" style={{ fontFamily: 'Poppins, sans-serif' }}>Just provide some basic information, and our trip planner will generate a  customized itineray based on your preferences.🏡🛬</p>
+            <div className="mt-3 text-gray-800 text-base md:text-lg" style={{ fontFamily: 'Poppins, sans-serif' }}>Just provide some basic information, and our trip planner will generate a  customized itineray based on your preferences.🏡🛬</div>
 
             <div className="mt-8 flex flex-col gap-5 my-8">
                 <h2 className="text-xl my-1 font-medium text-blue-800">What is destination of choice?</h2>

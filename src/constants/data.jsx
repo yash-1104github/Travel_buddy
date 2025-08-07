@@ -9,7 +9,7 @@ export const testimonialsData = [
     {
         name: "Ayush Gopal",
         role: "Freelancer",
-        image: "https://randomuser.me/api/portraits/men/12.jpg",
+        image: "https://randomuser.me/api/portraits/men/22.jpg",
         quote:
             "This app is a game-changer for anyone who loves to travel. The AI-generated itineraries saved me so much time and effort. I recommend to use this!",
     },

@@ -1,4 +1,3 @@
-
 # Logs
 logs
 *.log
@@ -8,10 +7,15 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+# Dependency directories
 node_modules
 dist
 dist-ssr
-*.local
+
+# Local environment files
+.env.local       # Local overrides, should never be committed
+.env.*.local     # Like .env.development.local, etc.
+
 
 # Editor directories and files
 .vscode/*
