@@ -1,4 +1,3 @@
-
 export const testimonialsData = [
     {
         name: "Deeksha Gupta",
