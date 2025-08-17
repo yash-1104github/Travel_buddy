@@ -23,6 +23,7 @@ const Home = () => {
   return (
     <>
       <div className="flex flex-col items-center  mx-4  md:mx-32 lg:mx-52">
+       
         <div>
           <h1 className="font-extrabold text-3xl  md:text-5xl  lg:text-6xl text-center text-gray-800 mt-10">
             <span className="text-[#f56551]">
