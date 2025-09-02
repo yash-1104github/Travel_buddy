@@ -34,9 +34,8 @@ The app integrates Google AI-powered LLM to personalize travel plans based on us
 Clone the repository:
 - git clone https://github.com/yourusername/travel-planner.git
 - cd travel-planner
-- cd frontend
 - npm install
-- - npm run dev
+- npm run dev
 
 
 **🤝 Contributing**
