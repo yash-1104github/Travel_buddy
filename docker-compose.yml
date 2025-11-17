@@ -1,0 +1,10 @@
+version: '1.0'
+
+services:
+  travel_buddy:
+    image: travel_buddy:v1
+    build: .
+    ports:
+            - "4173:4173"
+    restart: always
+

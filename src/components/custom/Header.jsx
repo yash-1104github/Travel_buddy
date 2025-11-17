@@ -26,10 +26,12 @@ const Header = () => {
   const modalRef = useRef(null);
 
   useEffect(() => {
+
     const handleClickOutside = (e) => {
       if (modalRef.current && !modalRef.current.contains(e.target)) {
         setOpenDialog(false);
       }
+      
     };
 
     document.addEventListener("mousedown", handleClickOutside);
