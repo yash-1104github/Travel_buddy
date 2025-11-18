@@ -29,7 +29,6 @@ import {
 import "@geoapify/geocoder-autocomplete/styles/minimal.css";
 
 const CreateTrip = () => {
-
   const [place, setPlace] = useState();
 
   const [formData, setFormData] = useState([]);
@@ -47,34 +46,34 @@ const CreateTrip = () => {
   };
 
   function onPlaceSelect(value) {
-  if (value && value.properties) {
-    const locationData = {
-      name: value.properties.formatted,
-      lat: value.properties.lat,
-      lon: value.properties.lon,
-      country: value.properties.country,
-    };
+    if (value && value.properties) {
+      const locationData = {
+        name: value.properties.formatted,
+        lat: value.properties.lat,
+        lon: value.properties.lon,
+        country: value.properties.country,
+      };
 
-    setPlace(locationData);
-    handleChange("location", locationData);
-    console.log("Selected Place:", locationData);
+      setPlace(locationData);
+      handleChange("location", locationData);
+      console.log("Selected Place:", locationData);
+    }
   }
-}
 
   function onSuggectionChange(value) {
-  if (value && value.properties) {
-    const locationData = {
-      name: value.properties.formatted,
-      lat: value.properties.lat,
-      lon: value.properties.lon,
-      country: value.properties.country,
-    };
+    if (value && value.properties) {
+      const locationData = {
+        name: value.properties.formatted,
+        lat: value.properties.lat,
+        lon: value.properties.lon,
+        country: value.properties.country,
+      };
 
-    setPlace(locationData);
-    handleChange("location", locationData);
-    console.log("Suggestion Changed:", locationData);
+      setPlace(locationData);
+      handleChange("location", locationData);
+      console.log("Suggestion Changed:", locationData);
+    }
   }
-}
 
   useEffect(() => {
     console.log(formData);
@@ -291,7 +290,6 @@ const CreateTrip = () => {
 
       <Member formData={formData} handleChange={handleChange} />
 
-
       <div className="my-8 justify-end flex">
         <Button
           className="h-14 w-64 text-lg tracking-wide"
@@ -319,9 +317,12 @@ const CreateTrip = () => {
       <Dialog open={openDialog}>
         <DialogContent ref={modalRef} className="sm:max-w-md">
           <DialogDescription>
-            <h2 className="font-semibold text-2xl  text-center text-gray-800">
+            <div className="flex-col font-semibold items-center h-24 text-2xl text-center text-black">
               Get Start with Travel Buddy
-            </h2>
+              <div className="flex justify-center items-center">
+                <img src="/logi.png" className="w-52 h-20  object-contain " />
+              </div>
+            </div>
           </DialogDescription>
 
           <div className="flex gap-4 justify-center mt-5">

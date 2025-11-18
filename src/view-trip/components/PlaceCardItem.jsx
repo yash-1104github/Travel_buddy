@@ -16,7 +16,7 @@ const PlaceCardItem = ({ place }) => {
     const result = await getPlaces(data).then((response) => {
       const PhotoUrl = PHOTO_REF_URL.replace(
         "{NAME}",
-        response.data.places[0].photos[4].name
+        response.data.places[0].photos[5].name
       );
 
       setPhotoUrl(PhotoUrl);
@@ -31,7 +31,7 @@ const PlaceCardItem = ({ place }) => {
         }
         target="_blank"
       >
-        <div className="group  cursor-pointer ">
+        <div className="group cursor-pointer ">
           <img
             src={
               photoUrl
@@ -46,12 +46,12 @@ const PlaceCardItem = ({ place }) => {
             <h2 className="font-medium text-lg text-blue-500">
               {place.placeName}
             </h2>
-            <p className="text-sm text-gray-600 mt-1 line-clamp-2">
+            <p className="text-base text-gray-600 mt-1 line-clamp-2">
               {place.placeDetail}
             </p>
 
             <div className="mt-3 flex items-center justify-between">
-              <span className="text-sm font-medium text-gray-800">
+              <span className="text-base font-medium text-gray-800">
                 💵 {place.ticketPricing ? place.ticketPricing : "N/A"}
               </span>
               <span className="text-blue-600 text-sm font-medium group-hover:no-underline">

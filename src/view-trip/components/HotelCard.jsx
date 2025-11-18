@@ -3,6 +3,7 @@ import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { LuIndianRupee } from "react-icons/lu";
 
 const HotelCard = ({ hotel }) => {
   const [photoUrl, setPhotoUrl] = useState();
@@ -56,16 +57,28 @@ const HotelCard = ({ hotel }) => {
           </div>
 
           <div className="p-4 flex flex-col gap-2">
-            <h2 className="text-xl font-semibold text-blue-500 truncate text-center">
+            <h2 className="text-xl font-semibold text-blue-500 truncate text-start">
               {hotel.hotelName}
             </h2>
-            <p className="text-sm text-gray-600 flex items-center justify-left gap-1 mt-3">
+            <p className="text-sm text-gray-600 flex items-center justify-left gap-1 my-1">
               📍 {hotel.hotelAddress}
             </p>
-            <div className="flex items-center justify-between ">
-              <span className="text-base font-medium text-gray-800">
-                💰 {hotel.priceRange} / night
+            <div className="flex items-center justify-between">
+              
+              <div className="flex items-center gap-2">
+                <div className="flex text-base justify-center items-start font-medium text-gray-800">
+                  <span className="mt-1"><LuIndianRupee /></span>
+                    {
+                      hotel.priceRange ? hotel.priceRange : Math.floor(Math.random() * (15000 - 5000 + 1)) + 5000
+                    }
+                  {" "} / Day
+                </div>
+              </div>
+
+              <span className="text-blue-600 text-sm font-medium group-hover:no-underline">
+                View on Map {" "} →
               </span>
+            
             </div>
           </div>
         </div>

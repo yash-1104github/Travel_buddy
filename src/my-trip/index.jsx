@@ -34,16 +34,13 @@ const Mytrips = () => {
   };
 
   return (
-    <div>
-      <div className="h-[5rem]"></div>
-      <div
-        className="flex flex-col bg-gray-50 h-full px-5 sm:px-20 md:px-32 lg:px-48 xl:px-72"
-        style={{ fontFamily: " Poppins, sans-serif" }}
-      >
-        <h2 className="font-semibold  text-4xl mt-8 text-blue-500">
+    <div className="min-h-screen  bg-gray-50">
+      <div className="mt-20"></div>
+      <div className="flex flex-col  h-full px-5 sm:px-20 md:px-32 lg:px-48 xl:px-72">
+        <h2 className="font-semibold text-2xl md:text-4xl mt-8 text-blue-500">
           My Trips Details
         </h2>
-        <div className="text-gray-500 text-lg mt-2">
+        <div className="text-gray-500 text-base md:text-lg mt-2">
           Here are the trips you have created
         </div>
 

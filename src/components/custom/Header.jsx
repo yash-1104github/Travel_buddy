@@ -18,7 +18,6 @@ import {
 } from "@/components/ui/dialog";
 import { FcGoogle } from "react-icons/fc";
 import axios from "axios";
-import GooglePlacesAutocomplete from "react-google-places-autocomplete";
 
 const Header = () => {
   const user = JSON.parse(localStorage.getItem("user"));
@@ -26,12 +25,10 @@ const Header = () => {
   const modalRef = useRef(null);
 
   useEffect(() => {
-
     const handleClickOutside = (e) => {
       if (modalRef.current && !modalRef.current.contains(e.target)) {
         setOpenDialog(false);
       }
-      
     };
 
     document.addEventListener("mousedown", handleClickOutside);
@@ -67,7 +64,7 @@ const Header = () => {
 
   return (
     <>
-      <div className="px-4 md:px-16 py-4 h-20  fixed top-0 w-full bg-white/80 backdrop-blure-md z-50 border-b bg-gray-50 shadow-sm flex justify-between items-center gap-4 ">
+      <div className="px-4 md:px-16 py-4 h-24  fixed top-0 w-full bg-white/80 backdrop-blure-md z-50 border-b bg-slate-50 shadow-sm flex justify-between items-center gap-4 ">
         <a href="/">
           <img
             src="/logi.png"
@@ -77,7 +74,7 @@ const Header = () => {
 
         <div className="hidden gap-4 sm:flex">
           <a href="/create-trip">
-            <Button variant="destructive" className="rounded-3xl bg-slate-500 ">
+            <Button className="rounded-3xl bg-blue-500 hover:bg-blue-600 text-white flex items-center gap-2">
               <IoMdAdd /> Create Trips
             </Button>
           </a>
@@ -86,8 +83,8 @@ const Header = () => {
             {user ? (
               <div className="flex gap-4 items-center">
                 <a href="/my-trips">
-                  <Button variant="outline" classname="rounded-full onhover:bg-gray-800">
-                    My Trips
+                  <Button className="rounded-3xl bg-green-500 hover:bg-greeen-600 text-white flex items-center gap-2">
+                    <IoMdAdd /> Explore Trips
                   </Button>
                 </a>
 
@@ -123,13 +120,17 @@ const Header = () => {
           </div>
 
           <Dialog open={openDialog}>
-           
             <DialogContent ref={modalRef} className="sm:max-w-md">
-             
               <DialogDescription>
-                <h2 className="font-semibold  text-2xl  text-center text-gray-800">
+                <div className="flex-col font-semibold items-center h-24 text-2xl text-center text-gray-800">
                   Get Start with Travel Buddy
-                </h2>
+                  <div className="flex justify-center items-center">
+                  <img
+                    src="/logi.png"
+                    className="w-52 h-20  object-contain "
+                  />
+                  </div>
+                </div>
               </DialogDescription>
 
               <div className="flex gap-4 justify-center mt-5">
@@ -142,7 +143,6 @@ const Header = () => {
                 </Button>
               </div>
             </DialogContent>
-
           </Dialog>
         </div>
 
@@ -151,7 +151,10 @@ const Header = () => {
             {user ? (
               <div className="flex gap-2 items-center">
                 <a href="/my-trips">
-                  <Button variant="outline" classname="rounded-full onhover:bg-gray-800">
+                  <Button
+                    variant="outline"
+                    classname="rounded-full onhover:bg-gray-800"
+                  >
                     My Trips
                   </Button>
                 </a>

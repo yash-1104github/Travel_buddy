@@ -18,6 +18,7 @@ import {
   CarouselItem,
 } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
+import { use } from "react";
 
 const Home = () => {
   return (
@@ -38,6 +39,8 @@ const Home = () => {
           </p>
         </div>
 
+      
+
         <Link to={"/create-trip"}>
           <Button className="m-10 h-14 w-44 rounded-lg animate-bounce">
             {" "}
@@ -56,7 +59,7 @@ const Home = () => {
         </div>
 
         <div>
-          <div className="text-3xl  md:text-4xl  lg:text-5xl font-semibold text-gray-700 text-center my-8">
+          <div className="text-3xl  md:text-4xl  lg:text-5xl font-semibold text-gray-700 text-center my-12">
             Our Partners
           </div>
 
@@ -83,7 +86,7 @@ const Home = () => {
         </div>
 
         <section className="py-8">
-          <div className="container mx-auto px-4 pt-16">
+          <div className="container mx-auto px-4">
             <div className="text-3xl md:text-4xl lg:text-5xl font-semibold text-gray-700 text-center mb-16">
               What Our Users Say
             </div>

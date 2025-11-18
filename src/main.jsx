@@ -34,8 +34,8 @@ window.initMap = () => {
   console.log("Google Maps API initialized.");
 };
 
-
 const temp = import.meta.env.VITE_GOOGLE_AUTH_CLIENT_ID;
+
 console.log("Google Auth Client ID:", temp);
 
 const RootComponent = () => {
