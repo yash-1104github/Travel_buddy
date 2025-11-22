@@ -12,6 +12,14 @@ COPY . .
 
 RUN npm run build
 
-EXPOSE  4173
+FROM node:20 as production
 
-CMD ["npm", "run", "preview", "--", "--host", "0.0.0.0"]
+WORKDIR /app
+
+RUN npm install -g serve
+
+COPY --from=build /app/dist ./dist
+
+EXPOSE 4173
+
+CMD ["serve", "-s", "dist", "-l", "4173"]
