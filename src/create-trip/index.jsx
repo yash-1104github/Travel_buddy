@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from "react";
-import GooglePlacesAutocomplete from "react-google-places-autocomplete";
 import { Input } from "@/components/ui/input";
 import { AI_PROMPT } from "@/constants/options";
 import { Button } from "@/components/ui/button";
@@ -14,19 +13,16 @@ import {
   Dialog,
   DialogContent,
   DialogDescription,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
 } from "@/components/ui/dialog";
 import { FcGoogle } from "react-icons/fc";
 import { useGoogleLogin } from "@react-oauth/google";
 import axios from "axios";
-import useGoogleMapsAPI from "@/GoogeMap";
 import {
   GeoapifyGeocoderAutocomplete,
   GeoapifyContext,
 } from "@geoapify/react-geocoder-autocomplete";
 import "@geoapify/geocoder-autocomplete/styles/minimal.css";
+
 
 const CreateTrip = () => {
   const [place, setPlace] = useState();
@@ -56,7 +52,7 @@ const CreateTrip = () => {
 
       setPlace(locationData);
       handleChange("location", locationData);
-      console.log("Selected Place:", locationData);
+      //console.log("Selected Place:", locationData);
     }
   }
 
@@ -71,12 +67,12 @@ const CreateTrip = () => {
 
       setPlace(locationData);
       handleChange("location", locationData);
-      console.log("Suggestion Changed:", locationData);
+      //console.log("Suggestion Changed:", locationData);
     }
   }
 
   useEffect(() => {
-    console.log(formData);
+    //console.log(formData);
   }, [formData]);
 
   useEffect(() => {
@@ -132,7 +128,7 @@ const CreateTrip = () => {
       .replace("{budget}", formData?.budget)
       .replace("{totalDays}", formData?.noOfDays);
 
-    console.log(FINAL_PROMPT);
+    //console.log(FINAL_PROMPT);
 
     const MAX_RETRIES = 10;
     const RETRY_DELAY = 2000;
@@ -161,10 +157,10 @@ const CreateTrip = () => {
 
     try {
       const result = await sendMessageWithRetries();
-      console.log(result?.response?.text());
+      //console.log(result?.response?.text());
       SaveAiTrip(result?.response?.text());
     } catch (error) {
-      console.log("Error:", error);
+      //console.log("Error:", error);
       toast("Server Error, Please Enter Details again...");
     } finally {
       setLoading(false);
@@ -182,7 +178,7 @@ const CreateTrip = () => {
           },
         }
       );
-      console.log(res);
+     //console.log(res);
       localStorage.setItem("user", JSON.stringify(res.data));
       setOpenDialog(false);
       GenerateTrip();
@@ -196,7 +192,7 @@ const CreateTrip = () => {
     setLoading(true);
     const user = JSON.parse(localStorage.getItem("user"));
 
-    console.log("TripData:", TripData);
+    //console.log("TripData:", TripData);
 
     try {
       const docID = Date.now().toString();
@@ -210,6 +206,7 @@ const CreateTrip = () => {
 
       setLoading(false);
       naviagate("/view-trip/" + docID);
+      console.log("Trip saved to Firebase");
     } catch (error) {
       setLoading(false);
       toast("Server Error, Please Enter Details again...");

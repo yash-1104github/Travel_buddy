@@ -16,13 +16,10 @@ const InfoSection = ({ trip }) => {
     };
 
     const result = await getPlaces(data).then((response) => {
-      const PhotoUrl = PHOTO_REF_URL.replace(
-        "{NAME}",
-        response.data.places[0].photos[4].name ||
-          response.data.places[0].photos[4].label
-      );
-
+      const PhotoUrl = PHOTO_REF_URL.replace("{NAME}", response.data.places[0].photos[5].name);
+      
       setPhotoUrl(PhotoUrl);
+      console.log("photoUrl", PhotoUrl)
     });
   };
 

@@ -13,18 +13,18 @@ const HotelCard = ({ hotel }) => {
   }, [hotel]);
 
   const GetPlacePhoto = async () => {
-    console.log(hotel.hotelName);
+    //console.log(hotel.hotelName);
     const data = {
       textQuery: hotel.hotelName,
     };
     const result = await getPlaces(data).then((response) => {
-      console.log(response.data.places[0].photos[4].name);
+      //console.log(response.data.places[0].photos[4].name);
 
       const PhotoUrl = PHOTO_REF_URL.replace(
         "{NAME}",
         response.data.places[0].photos[4].name
       );
-      console.log(PhotoUrl);
+      //console.log(PhotoUrl);
       setPhotoUrl(PhotoUrl);
     });
   };

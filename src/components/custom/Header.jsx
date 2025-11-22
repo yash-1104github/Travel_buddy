@@ -40,7 +40,7 @@ const Header = () => {
 
   const login = useGoogleLogin({
     onSuccess: (codeResponse) => GetUserProfile(codeResponse),
-    onError: (error) => console.log(error),
+    //onError: (error) => console.log(error),
   });
 
   const GetUserProfile = async (tokenInfo) => {
@@ -55,7 +55,7 @@ const Header = () => {
         }
       )
       .then((res) => {
-        console.log(res);
+        //console.log(res);
         localStorage.setItem("user", JSON.stringify(res.data));
         setOpenDialog(false);
         window.location.reload();
@@ -64,7 +64,7 @@ const Header = () => {
 
   return (
     <>
-      <div className="px-4 md:px-16 py-4 h-24  fixed top-0 w-full bg-white/80 backdrop-blure-md z-50 border-b bg-slate-50 shadow-sm flex justify-between items-center gap-4 ">
+      <div className="px-4 md:px-14 py-4 h-24  fixed top-0 w-full bg-white/80 backdrop-blur-2xl z-50 border-b bg-slate-50 shadow-sm flex justify-between items-center gap-4 ">
         <a href="/">
           <img
             src="/logi.png"

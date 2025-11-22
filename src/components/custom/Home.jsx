@@ -23,10 +23,9 @@ import { use } from "react";
 const Home = () => {
   return (
     <>
-      <div className="flex flex-col items-center  mx-4  md:mx-32 lg:mx-52">
-       
+      <div className="flex flex-col items-center  mx-4 md:mx-28 lg:mx-48">
         <div>
-          <h1 className="font-extrabold text-3xl  md:text-5xl  lg:text-6xl text-center text-gray-800 mt-10">
+          <h1 className="font-extrabold text-4xl md:text-5xl  lg:text-6xl text-center text-gray-800 mt-10 md:mt-16">
             <span className="text-[#f56551]">
               Discover Your Next Adventure with AI:
             </span>{" "}
@@ -39,16 +38,25 @@ const Home = () => {
           </p>
         </div>
 
-      
+        <div className="flex">
+          <Link to={"/create-trip"}>
+            <Button className="bg-slate-800 m-10 h-14 w-40 md:w-48 rounded-lg hover:bg-slate-900 text-white ">
+              {" "}
+              <span className="text-sm md:text-base">Get Started, It's Free </span>
+            </Button>
+          </Link>
 
-        <Link to={"/create-trip"}>
-          <Button className="m-10 h-14 w-44 rounded-lg animate-bounce">
-            {" "}
-            <span className="text-base">Get Started, It's Free </span>
-          </Button>
-        </Link>
+          <Link to={"/explore-trips"}>
+            <Button className="bg-white border-slate-800 border m-10 h-14 w-44 md:w-56 rounded-lg hover:bg-gray-100 text-slate-800 ">
+              {" "}
+              <span className="text-sm md:text-base text-slate-800">
+                Explore Community Trips
+              </span>
+            </Button>
+          </Link>
+        </div>
 
-        <div className="py-8 hidden md:flex">
+        <div className="py-8 md:py-14 hidden md:flex">
           <img
             src="/demo2.jpg"
             width={1200}
@@ -153,16 +161,20 @@ const Home = () => {
 
         <div className="w-full max-w-9xl  mx-auto container my-16  px-2">
           <div className="text-3xl md:text-4xl lg:text-5xl font-semibold text-gray-700 text-center mb-16">
-              Frequently Asked Questions
-            </div>
-         
+            Frequently Asked Questions
+          </div>
+
           <Accordion
             type="multiple"
             className="w-full px-2 "
             style={{ fontFamily: "Poppins, sans-serif" }}
           >
             {faqs.map((faq, index) => (
-              <AccordionItem key={index} value={`item-${index + 1}`} className= "py-2">
+              <AccordionItem
+                key={index}
+                value={`item-${index + 1}`}
+                className="py-2"
+              >
                 <AccordionTrigger className="text-base font-medium text-gray-800 hover:no-underline">
                   {faq.question}
                 </AccordionTrigger>

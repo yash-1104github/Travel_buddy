@@ -24,11 +24,11 @@ const Viewtrip = () => {
         const docSnap = await getDoc(docsRef);
 
         if (docSnap.exists()) {
-            console.log("Document data:", docSnap.data());
+            //console.log("Document data:", docSnap.data());
             setTrip(docSnap.data());
         }
         else {
-            console.log("No such document!");
+            //console.log("No such document!");
             toast("No such document!");
         }  
     }

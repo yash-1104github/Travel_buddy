@@ -17,6 +17,9 @@ dist-ssr
 .env.*.local     # Like .env.development.local, etc.
 .env
 
+td.js
+serviceAccount.json
+Imp.md
 
 
 # Editor directories and files

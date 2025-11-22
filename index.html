@@ -18,11 +18,18 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
-
-    <script
+    <script>
+      function initMap() {
+        map = new google.maps.Map(document.getElementById("map"), {
+          center: { lat: -34.397, lng: 150.644 },
+          zoom: 8,
+        });
+      }
+    </script>
+    <!-- <script
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCZDwV4SCjAU8eRHjoZH9pc3DZqwHa3gec&libraries=places&callback=initMap"
       async="true"
       defer="true"
-    ></script>
+    ></script> -->
   </body>
 </html>

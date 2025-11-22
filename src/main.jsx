@@ -1,4 +1,4 @@
-import React, { StrictMode, useEffect } from "react";
+import React from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
 import App from "./App.jsx";
@@ -7,9 +7,9 @@ import CreateTrip from "./create-trip/index.jsx";
 import Headers from "./components/custom/Header.jsx";
 import { Toaster } from "@/components/ui/sonner";
 import Viewtrip from "./view-trip/index.jsx";
-import useGoogleMapsAPI from "./GoogeMap";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import Mytrips from "./my-trip";
+import CommnityTrips from "./commuity-tips/index.jsx";
 
 const router = createBrowserRouter([
   {
@@ -28,6 +28,10 @@ const router = createBrowserRouter([
     path: "/my-trips",
     element: <Mytrips />,
   },
+  {
+    path: "/explore-trips",
+    element: <CommnityTrips />,
+  }
 ]);
 
 window.initMap = () => {
@@ -36,7 +40,7 @@ window.initMap = () => {
 
 const temp = import.meta.env.VITE_GOOGLE_AUTH_CLIENT_ID;
 
-console.log("Google Auth Client ID:", temp);
+ //console.log("Google Auth Client ID:", temp);
 
 const RootComponent = () => {
   return (
