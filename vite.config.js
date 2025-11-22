@@ -3,6 +3,12 @@ import react from "@vitejs/plugin-react";
 import { defineConfig } from "vite";
 
 export default defineConfig({
+  preview: {
+    allowedHosts: [
+      'travel-buddy-2jtf.onrender.com',
+      '*.onrender.com'
+    ]
+  },
   plugins: [react()],
   resolve: {
     alias: {
@@ -11,11 +17,10 @@ export default defineConfig({
   },
   server: {
     headers: {
-      "Cache-Control": "no-store" // ⬅ prevents stale caching in dev
+      "Cache-Control": "no-store"
     }
   },
   build: {
-    // Ensures new chunks are generated on each change
     rollupOptions: {
       output: {
         entryFileNames: `assets/[name].[hash].js`,
