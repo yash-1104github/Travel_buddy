@@ -8,6 +8,8 @@ const model = genAI.getGenerativeModel({
   model: import.meta.env.VITE_GEMINI_MODEL,
 });
 
+console.log("mode", model);
+
 const generationConfig = {
   temperature: 1,
   topP: 0.95,
