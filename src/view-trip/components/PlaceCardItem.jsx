@@ -19,7 +19,6 @@ const PlaceCardItem = ({ place }) => {
         response.data.places[0].photos[5].name
       );
       
-      console.log("PhotoUrl",PhotoUrl);
       setPhotoUrl(PhotoUrl);
     });
   };

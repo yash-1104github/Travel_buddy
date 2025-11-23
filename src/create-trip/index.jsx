@@ -206,14 +206,12 @@ const CreateTrip = () => {
 
       setLoading(false);
       naviagate("/view-trip/" + docID);
-      console.log("Trip saved to Firebase");
+      //console.log("Trip saved to Firebase");
     } catch (error) {
       setLoading(false);
       toast("Server Error, Please Enter Details again...");
     }
   };
-
-  console.log("locations", import.meta.env.VITE_GEOAPIFY_KEY);
 
   return (
     <div className="flex flex-col bg-gray-50 px-5 sm:px-20 md:px-28 lg:px-56 xl:px-72 ">

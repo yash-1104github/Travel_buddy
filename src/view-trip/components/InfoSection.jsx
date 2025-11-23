@@ -19,7 +19,6 @@ const InfoSection = ({ trip }) => {
       const PhotoUrl = PHOTO_REF_URL.replace("{NAME}", response.data.places[0].photos[5].name);
       
       setPhotoUrl(PhotoUrl);
-      console.log("photoUrl", PhotoUrl)
     });
   };
 

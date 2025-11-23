@@ -3,7 +3,7 @@ import { useEffect } from "react";
 const useGoogleMapsAPI = () => {
   useEffect(() => {
     const apiKey = import.meta.env.VITE_GOOGLE_PLACE_API_KEY;
-    console.log("apikey", apiKey);
+    //console.log("apikey", apiKey);
 
     if (!document.querySelector(`script[src*="maps.googleapis.com"]`)) {
       const script = document.createElement("script");
