@@ -6,9 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "start": "vite build --watch",
-    "lint": "eslint src",
-    "preview": "vite preview"
+    "start": "vite preview",
+    "lint": "eslint src"
   },
   "dependencies": {
     "@geoapify/geocoder-autocomplete": "^2.2.1",

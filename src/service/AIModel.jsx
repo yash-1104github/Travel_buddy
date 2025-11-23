@@ -5,7 +5,7 @@ const apiKey = import.meta.env.VITE_GOOGLE_GEMINI_MODEL_API_KEY;
 const genAI = new GoogleGenerativeAI(apiKey);
 
 const model = genAI.getGenerativeModel({
-  model: import.meta.env.VITE_GEMINI_MODEL,
+  model: "gemini-2.5-flash",
 });
 
 console.log("mode", model);
