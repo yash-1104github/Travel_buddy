@@ -3,12 +3,6 @@ import react from "@vitejs/plugin-react";
 import { defineConfig } from "vite";
 
 export default defineConfig({
-  preview: {
-    allowedHosts: [
-      'travel-buddy-2jtf.onrender.com',
-      '*.onrender.com'
-    ]
-  },
   plugins: [react()],
   resolve: {
     alias: {
