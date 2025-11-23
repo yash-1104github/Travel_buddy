@@ -39,6 +39,7 @@ window.initMap = () => {
 };
 
 const temp = import.meta.env.VITE_GOOGLE_AUTH_CLIENT_ID;
+console.log("temp",temp);
 
  //console.log("Google Auth Client ID:", temp);
 
