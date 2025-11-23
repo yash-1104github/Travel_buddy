@@ -213,6 +213,8 @@ const CreateTrip = () => {
     }
   };
 
+  console.log("locations", import.meta.env.VITE_GEOAPIFY_KEY);
+
   return (
     <div className="flex flex-col bg-gray-50 px-5 sm:px-20 md:px-28 lg:px-56 xl:px-72 ">
       <div className="h-20"></div>

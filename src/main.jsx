@@ -41,11 +41,19 @@ window.initMap = () => {
 const temp = import.meta.env.VITE_GOOGLE_AUTH_CLIENT_ID;
 console.log("temp",temp);
 
+const val = import.meta.env.VITE_GOOGLE_AUTH_CLIENT_ID;
+console.log("val", val);
+
+const firebase = import.meta.env.VITE_FIREBASE_API_KEY;
+console.log("firebase", firebase);
+
+console.log("place_api", import.meta.env.VITE_GOOGLE_PLACE_API_KEY );
+
  //console.log("Google Auth Client ID:", temp);
 
 const RootComponent = () => {
   return (
-    <GoogleOAuthProvider clientId={import.meta.env.VITE_GOOGLE_AUTH_CLIENT_ID}>
+    <GoogleOAuthProvider clientId={val}>
       <Headers />
       <RouterProvider router={router} />
       <Toaster />
