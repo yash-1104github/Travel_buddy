@@ -10,7 +10,6 @@ import Viewtrip from "./view-trip/index.jsx";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import Mytrips from "./my-trip";
 import CommnityTrips from "./commuity-tips/index.jsx";
-import { Toaster } from "@/components/ui/toaster";
 import { Analytics } from "@vercel/analytics/react"
 
 const router = createBrowserRouter([
