@@ -1,6 +1,6 @@
 import OpenAI from "openai";
 
-const MODEL = "gpt-4o-mini";
+const MODEL = process.env.OPENAI_MODEL || "gpt-4o-mini";
 
 const SYSTEM_PROMPT = `You are a travel planning assistant. Generate detailed trip plans as valid JSON only.
 Do not wrap the response in markdown code fences or add any text outside the JSON object.
