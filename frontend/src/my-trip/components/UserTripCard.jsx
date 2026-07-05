@@ -49,21 +49,10 @@ const UserTripCard = ({ trip, hide, onDelete, addTrip }) => {
                     e.preventDefault();
                     addTrip(trip?.id, trip);
                   }}
-                  className="absolute bottom-3 left-3 z-10 flex items-center gap-2 bg-white/90 hover:bg-gray-400 px-2 py-2 rounded-full text-xs shadow-md transition"
+                  className="absolute bottom-3 right-3 z-10 flex items-center gap-2 bg-white/90 hover:bg-gray-400 px-2 py-2 rounded-full text-xs shadow-md transition"
                 >
                   <BsUpload size={14} />
                   <span>Add to Community</span>
-                </button>
-
-                <button
-                  onClick={(e) => {
-                    e.preventDefault();
-                    onDelete(trip?.id);
-                  }}
-                  className="absolute bottom-3 right-3 z-10 flex items-center gap-1 bg-white/90 hover:bg-gray-400 px-2 py-2 rounded-full text-xs shadow-md transition"
-                >
-                  <Trash2 size={14} />
-                  <span>Remove Trip</span>
                 </button>
               </>
             )}

@@ -58,7 +58,7 @@ const Home = () => {
 
         <div className="py-8 md:py-14 hidden md:flex">
           <img
-            src="/demo2.jpg"
+            src="/demo.png"
             width={1200}
             height={600}
             alt="Preview"
