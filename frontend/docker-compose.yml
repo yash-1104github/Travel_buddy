@@ -1,0 +1,37 @@
+version: '1.0'
+
+services:
+  mongo:
+    image: mongo:7
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+    restart: always
+
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile.api
+    ports:
+      - "3001:3001"
+    environment:
+      - MONGO_DB_URL=mongodb://mongo:27017/travel_buddy
+      - PORT=3001
+    depends_on:
+      - mongo
+    restart: always
+
+  travel_buddy:
+    image: travel_buddy:v1
+    build: .
+    ports:
+      - "4173:4173"
+    environment:
+      - VITE_API_URL=http://localhost:3001
+    depends_on:
+      - api
+    restart: always
+
+volumes:
+  mongo_data:

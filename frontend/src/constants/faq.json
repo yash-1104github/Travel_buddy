@@ -1,0 +1,27 @@
+ [
+    {
+        "question": "What is Travel Buddy?",
+        "answer": "Trip Buddy is a travel management application that helps users schedule daily itineraries and provides detailed information about hotels and tourist attractions, including the best times to visit."
+
+    },
+    {
+        "question": "How do I plan a trip?",
+        "answer": "To plan a trip, enter key details such as your travel dates, duration, budget, and number of travelers. The system will provide optimized itineraries and relevant travel recommendations."
+    },
+    {
+        "question":"How to get information of hotels and places?",
+        "answer": "The app uses Unsplash for destination and place photos, and AI-generated itineraries include hotel details, attractions, and visiting times based on your preferences."
+    },
+    {
+        "question": "How does the itinerary scheduling work?",
+        "answer": "The application uses OpenAI to process your travel preferences and generate daily schedules tailored to your destination, budget, and group size."
+    },
+    {
+        "question": "How can I save my trip",
+        "answer": "Yes, You can view your trip listings by clicking the 'My trip' button on the Header section."
+    },
+    {
+        "question": "Can I track my travel expenses with the app?",
+        "answer": "The platform provides budgeting insights during trip planning to help estimate and manage costs effectively based on your selections."
+    }
+]
